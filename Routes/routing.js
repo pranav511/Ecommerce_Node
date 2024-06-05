@@ -51,6 +51,9 @@ routing.get('/orders', orderController.getOrders);
 
 routing.delete('/orders/:id', orderController.cancleOrder);
 
+//General for check
+routing.get('/api',productController.getHome);
+
 
 // routing.get('/tracker/:logger', tracker.getUserDefects);
 

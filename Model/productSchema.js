@@ -1,22 +1,27 @@
 const mongoose = require('mongoose');
 
+const dotenv=require('dotenv');
+dotenv.config({path:'./.env'});
+const mongodbUrl=process.env.MONGODB_URL;
+const mongodbUrl1=process.env.MONGODB_URL1;
 mongoose
-  .connect('mongodb+srv://pranavkewate7820:jiCogXf0kE3tPGTF@ecommercedb.nt2pq1k.mongodb.net/?retryWrites=true&w=majority&appName=EcommerceDB', {
+  .connect(mongodbUrl, {
     useNewUrlParser: true,
     useCreateIndex: true,
     useFindAndModify: false,
     useUnifiedTopology: true,
+  }).then(()=>{
+    console.log('data is connected to database2.');
   })
-  .then(() => console.log('DB connection successful!'));
 // mongoose
-//   .connect('mongodb+srv://kewatepranav05:pass@1234@cluster0.mcmkxgx.mongodb.net/', {
+//   .connect(mongodbUrl1, {
 //     useNewUrlParser: true,
 //     useCreateIndex: true,
 //     useFindAndModify: false,
 //     useUnifiedTopology: true,
+//   }).then(()=>{
+//     console.log('data is connected to database1.');
 //   })
-//   .then(() => console.log('DB connection successful!'));
-
   
 
 const Schema = new mongoose.Schema(
@@ -67,3 +72,5 @@ const repo = mongoose.model('Product', Schema);
 
 
 module.exports = repo;
+
+//mongodb+srv://pranavkewate7820:jiCogXf0kE3tPGTF@ecommercedb.nt2pq1k.mongodb.net/?retryWrites=true&w=majority&appName=EcommerceDB

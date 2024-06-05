@@ -2,6 +2,10 @@ const repo = require('../Model/productSchema');
 const validator = require('../Utilities/validator');
 const helper = require('../Utilities/helpers');
 
+exports.getHome=async(req,res)=>{
+  res.send('Home page for checking')
+}
+
 exports.addProducts = async (req, res) => {
   try {
     if (
